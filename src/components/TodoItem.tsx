@@ -40,6 +40,7 @@ const TodoItem = (props: ITodoItem) => {
   return (
     <li
       className={cx({
+        // tslint:disable-next-line
         completed: completed,
         //  editing: this.state.editing
       })}

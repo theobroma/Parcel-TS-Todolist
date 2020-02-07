@@ -8,7 +8,7 @@ const MainApp: React.FC = (props: any) => {
   const dispatch = useDispatch();
   const todos = useSelector(state => state.todos.data);
 
-  const activeTodoCount = todos.reduce(function(accum: any, todo: any) {
+  const activeTodoCount = todos.reduce((accum: any, todo: any) => {
     return todo.completed ? accum : accum + 1;
   }, 0);
 

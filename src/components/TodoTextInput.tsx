@@ -25,17 +25,17 @@ class TodoTextInput extends Component<any, any> {
     }
   };
 
-  handleChange(e: any) {
-    //console.log('handleChange');
+  handleChange = (e: any) => {
+    // console.log('handleChange');
     this.setState({ text: e.target.value });
-  }
+  };
 
-  handleBlur(e: any) {
+  handleBlur = (e: any) => {
     if (!this.props.newTodo) {
       this.props.onSave(e.target.value);
       this.setState({ text: '' });
     }
-  }
+  };
 
   render() {
     return (
@@ -50,9 +50,9 @@ class TodoTextInput extends Component<any, any> {
           placeholder={this.props.placeholder}
           autoFocus={true}
           value={this.state.text}
-          onBlur={this.handleBlur.bind(this)}
-          onChange={this.handleChange.bind(this)}
-          onKeyDown={this.handleSubmit.bind(this)}
+          onBlur={this.handleBlur}
+          onChange={this.handleChange}
+          onKeyDown={this.handleSubmit}
         />
         {/* <pre>{JSON.stringify(this.state, null, 4)}</pre> */}
       </Fragment>
