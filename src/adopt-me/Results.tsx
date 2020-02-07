@@ -1,13 +1,13 @@
-import React from "react";
-import pf, { Pet as PetType } from "petfinder-client";
-import { RouteComponentProps } from "@reach/router";
-import Pet from "./Pet";
-import SearchBox from "./SearchBox";
-import { Consumer } from "./SearchContext";
+import React from 'react';
+import pf, { Pet as PetType } from 'petfinder-client';
+import { RouteComponentProps } from '@reach/router';
+import Pet from './Pet';
+import SearchBox from './SearchBox';
+import { Consumer } from './SearchContext';
 
 const petfinder = pf({
-  key: "NOT NEEDED ANYMORE",
-  secret: "NOT NEEDED ANYMORE"
+  key: 'NOT NEEDED ANYMORE',
+  secret: 'NOT NEEDED ANYMORE',
 });
 
 interface Props {
@@ -27,7 +27,7 @@ class Results extends React.Component<Props & RouteComponentProps, State> {
     super(props);
 
     this.state = {
-      pets: [] as PetType[]
+      pets: [] as PetType[],
     };
   }
   public componentDidMount() {
@@ -39,7 +39,7 @@ class Results extends React.Component<Props & RouteComponentProps, State> {
         location: this.props.searchParams.location,
         animal: this.props.searchParams.animal,
         breed: this.props.searchParams.breed,
-        output: "full"
+        output: 'full',
       })
       .then(data => {
         let pets: PetType[];
@@ -53,7 +53,7 @@ class Results extends React.Component<Props & RouteComponentProps, State> {
           pets = [];
         }
         this.setState({
-          pets
+          pets,
         });
       });
   };
@@ -64,7 +64,7 @@ class Results extends React.Component<Props & RouteComponentProps, State> {
         {this.state.pets.map(pet => {
           let breed;
           if (Array.isArray(pet.breeds.breed)) {
-            breed = pet.breeds.breed.join(", ");
+            breed = pet.breeds.breed.join(', ');
           } else {
             breed = pet.breeds.breed;
           }

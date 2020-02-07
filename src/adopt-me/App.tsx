@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Router, Link } from "@reach/router";
-import pf from "petfinder-client";
-import Results from "./Results";
-import Details from "./Details";
-import SearchParams from "./SearchParams";
-import { Provider } from "./SearchContext";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Link } from '@reach/router';
+import pf from 'petfinder-client';
+import Results from './Results';
+import Details from './Details';
+import SearchParams from './SearchParams';
+import { Provider } from './SearchContext';
 
 const petfinder = pf({
-  key: "NOT NEEDED ANYMORE",
-  secret: "NOT NEEDED ANYMORE"
+  key: 'NOT NEEDED ANYMORE',
+  secret: 'NOT NEEDED ANYMORE',
 });
 
 interface State {
@@ -28,22 +28,22 @@ class App extends React.Component<{}, State> {
     super(props);
 
     this.state = {
-      location: "Seattle, WA",
-      animal: "",
-      breed: "",
+      location: 'Seattle, WA',
+      animal: '',
+      breed: '',
       breeds: [] as string[],
       handleAnimalChange: this.handleAnimalChange,
       handleBreedChange: this.handleBreedChange,
       handleLocationChange: this.handleLocationChange,
-      getBreeds: this.getBreeds
+      getBreeds: this.getBreeds,
     };
   }
   public handleLocationChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     if (event.target instanceof HTMLInputElement) {
       this.setState({
-        location: event.target.value
+        location: event.target.value,
       });
     }
   };
@@ -51,16 +51,16 @@ class App extends React.Component<{}, State> {
     if (event.target instanceof HTMLInputElement) {
       this.setState(
         {
-          animal: event.target.value
+          animal: event.target.value,
         },
-        this.getBreeds
+        this.getBreeds,
       );
     }
   };
   public handleBreedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     if (event.target instanceof HTMLSelectElement) {
       this.setState({
-        breed: event.target.value
+        breed: event.target.value,
       });
     }
   };
@@ -75,7 +75,7 @@ class App extends React.Component<{}, State> {
             Array.isArray(data.petfinder.breeds.breed)
           ) {
             this.setState({
-              breeds: data.petfinder.breeds.breed
+              breeds: data.petfinder.breeds.breed,
             });
           } else {
             this.setState({ breeds: [] });
@@ -84,7 +84,7 @@ class App extends React.Component<{}, State> {
         .catch(console.error);
     } else {
       this.setState({
-        breeds: []
+        breeds: [],
       });
     }
   }
@@ -111,4 +111,4 @@ class App extends React.Component<{}, State> {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));

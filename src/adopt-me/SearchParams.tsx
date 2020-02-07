@@ -1,10 +1,10 @@
-import React from "react";
-import { navigate, RouteComponentProps } from "@reach/router";
-import SearchBox from "./SearchBox";
+import React from 'react';
+import { navigate, RouteComponentProps } from '@reach/router';
+import SearchBox from './SearchBox';
 
 class Search extends React.Component<RouteComponentProps> {
   public search() {
-    navigate("/");
+    navigate('/');
   }
   public render() {
     return (

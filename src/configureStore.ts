@@ -1,11 +1,11 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
-import { createLogger } from "redux-logger";
-import throttle from "lodash/throttle";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { loadState, saveState } from "./helpers/localStorage";
-import rootReducer from "./reducer";
-//mock data
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import throttle from 'lodash/throttle';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { loadState, saveState } from './helpers/localStorage';
+import rootReducer from './reducer';
+// mock data
 // import MOCK_DATA from './helpers/MOCK_DATA.json';
 
 const configureStore = () => {
@@ -16,8 +16,8 @@ const configureStore = () => {
       // data: MOCK_DATA,
       data: [],
       pending: false,
-      errorMessage: ""
-    }
+      errorMessage: '',
+    },
   };
   // if persistedState is not empty then assign parsed persistedState to initState
   if (persistedState) {
@@ -25,7 +25,7 @@ const configureStore = () => {
   }
 
   const logger = createLogger({
-    collapsed: true
+    collapsed: true,
   });
 
   const middlewares = [thunk, logger];
@@ -37,14 +37,14 @@ const configureStore = () => {
   const store = createStore(
     rootReducer,
     totalInitialState,
-    composeEnhancers(applyMiddleware(...middlewares))
+    composeEnhancers(applyMiddleware(...middlewares)),
   );
 
   store.subscribe(
     throttle(() => {
-      console.log("saved to localStorage");
+      console.log('saved to localStorage');
       saveState(store.getState());
-    }, 1000)
+    }, 1000),
   );
 
   return store;

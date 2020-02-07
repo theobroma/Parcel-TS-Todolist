@@ -1,13 +1,13 @@
-import { combineReducers } from "redux";
-import produce from "immer";
-import uuidv4 from "uuid/v4";
+import { combineReducers } from 'redux';
+import produce from 'immer';
+import uuidv4 from 'uuid/v4';
 
-import * as types from "./actions";
+import * as types from './actions';
 
 export const usersInitialState = {
   data: [],
   pending: false,
-  errorMessage: ""
+  errorMessage: '',
 };
 
 const todos = produce((draft, action) => {
@@ -17,7 +17,7 @@ const todos = produce((draft, action) => {
       const value = {
         _id: uuidv4(),
         completed: false,
-        text: action.payload
+        text: action.payload,
       };
       draft.data.push(value);
       return draft;
@@ -25,7 +25,7 @@ const todos = produce((draft, action) => {
 
     case types.REMOVE_TODO + types.REQUEST: {
       draft.data = draft.data.filter(
-        (todo: any) => todo._id !== action.payload
+        (todo: any) => todo._id !== action.payload,
       );
       return draft;
     }
@@ -61,7 +61,7 @@ const todos = produce((draft, action) => {
 }, usersInitialState);
 
 // filter reducer
-const filter = (state = "SHOW_ALL", action: any) => {
+const filter = (state = 'SHOW_ALL', action: any) => {
   // if (action.type === types.SET_FILTER) {
   //   return action.filter;
   // }

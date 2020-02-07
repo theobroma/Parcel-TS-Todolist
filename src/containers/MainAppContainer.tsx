@@ -6,7 +6,7 @@ import FooterContainer from '../containers/FooterContainer';
 
 const MainApp: React.FC = (props: any) => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos.data);
+  const todos = useSelector(state => state.todos.data);
 
   const activeTodoCount = todos.reduce(function(accum: any, todo: any) {
     return todo.completed ? accum : accum + 1;
@@ -17,7 +17,12 @@ const MainApp: React.FC = (props: any) => {
   let footer;
 
   if (activeTodoCount || completedCount) {
-    footer = <FooterContainer count={activeTodoCount} completedCount={completedCount} />;
+    footer = (
+      <FooterContainer
+        count={activeTodoCount}
+        completedCount={completedCount}
+      />
+    );
   }
 
   return (

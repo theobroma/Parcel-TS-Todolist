@@ -1,11 +1,11 @@
 // taken from React docs
-import React from "react";
-import { createPortal } from "react-dom";
+import React from 'react';
+import { createPortal } from 'react-dom';
 
-const modalRoot = document.getElementById("modal");
+const modalRoot = document.getElementById('modal');
 
 class Modal extends React.Component {
-  private el = document.createElement("div");
+  private el = document.createElement('div');
 
   public componentDidMount() {
     if (modalRoot) {

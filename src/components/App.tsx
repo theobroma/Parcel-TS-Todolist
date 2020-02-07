@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react';
 // import { hot } from 'react-hot-loader';
-import MainApp from "../containers/MainAppContainer";
+import MainApp from '../containers/MainAppContainer';
 
 // const reactLogo = require("./../assets/img/react_logo.svg");
-import "./../assets/scss/index.scss";
+import './../assets/scss/index.scss';
 
 class App extends React.Component {
   public render() {

@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "@reach/router";
-import { PetMedia, PetPhoto } from "petfinder-client";
+import React from 'react';
+import { Link } from '@reach/router';
+import { PetMedia, PetPhoto } from 'petfinder-client';
 
 interface Props {
   name: string;
@@ -16,10 +16,10 @@ class Pet extends React.Component<Props> {
     const { name, animal, breed, media, location, id } = this.props;
     let photos: PetPhoto[] = [];
     if (media && media.photos && media.photos.photo) {
-      photos = media.photos.photo.filter(photo => photo["@size"] === "pn");
+      photos = media.photos.photo.filter(photo => photo['@size'] === 'pn');
     }
 
-    let hero = "http://placecorgi.com/300/300";
+    let hero = 'http://placecorgi.com/300/300';
     if (photos[0] && photos[0].value) {
       hero = photos[0].value;
     }

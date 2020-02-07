@@ -1,24 +1,24 @@
-import React from "react";
-import pf, { PetResponse, PetMedia } from "petfinder-client";
-import { navigate, RouteComponentProps } from "@reach/router";
-import Carousel from "./Carousel";
-import Modal from "./Modal";
+import React from 'react';
+import pf, { PetResponse, PetMedia } from 'petfinder-client';
+import { navigate, RouteComponentProps } from '@reach/router';
+import Carousel from './Carousel';
+import Modal from './Modal';
 
 const petfinder = pf({
-  key: "NOT NEEDED ANYMORE",
-  secret: "NOT NEEDED ANYMORE"
+  key: 'NOT NEEDED ANYMORE',
+  secret: 'NOT NEEDED ANYMORE',
 });
 
 class Details extends React.Component<RouteComponentProps<{ id: string }>> {
   public state = {
     loading: true,
     showModal: false,
-    name: "",
-    animal: "",
-    location: "",
-    description: "",
+    name: '',
+    animal: '',
+    location: '',
+    description: '',
     media: {} as PetMedia,
-    breed: ""
+    breed: '',
   };
   public componentDidMount() {
     if (!this.props.id) {
@@ -26,30 +26,28 @@ class Details extends React.Component<RouteComponentProps<{ id: string }>> {
     }
     petfinder.pet
       .get({
-        output: "full",
-        id: this.props.id
+        output: 'full',
+        id: this.props.id,
       })
       .then((data: PetResponse) => {
         if (!data.petfinder.pet) {
-          navigate("/");
+          navigate('/');
           return;
         }
         let breed;
         if (Array.isArray(data.petfinder.pet.breeds.breed)) {
-          breed = data.petfinder.pet.breeds.breed.join(", ");
+          breed = data.petfinder.pet.breeds.breed.join(', ');
         } else {
           breed = data.petfinder.pet.breeds.breed;
         }
         this.setState({
           name: data.petfinder.pet.name,
           animal: data.petfinder.pet.animal,
-          location: `${data.petfinder.pet.contact.city}, ${
-            data.petfinder.pet.contact.state
-          }`,
+          location: `${data.petfinder.pet.contact.city}, ${data.petfinder.pet.contact.state}`,
           description: data.petfinder.pet.description,
           media: data.petfinder.pet.media,
           breed,
-          loading: false
+          loading: false,
         });
       })
       .catch((err: Error) => this.setState({ error: err }));
@@ -68,7 +66,7 @@ class Details extends React.Component<RouteComponentProps<{ id: string }>> {
       location,
       description,
       name,
-      showModal
+      showModal,
     } = this.state;
 
     return (

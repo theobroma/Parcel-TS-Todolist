@@ -29,7 +29,9 @@ export const handleTodoToggleAll = () => {
   return { type: TOGGLE_ALL_TODO + REQUEST };
 };
 
-export const removeCompleted = () => ({ type: TODOS_REMOVE_COMPLETED + REQUEST });
+export const removeCompleted = () => ({
+  type: TODOS_REMOVE_COMPLETED + REQUEST,
+});
 
 export const setFilter = (filter: any) => {
   return {
