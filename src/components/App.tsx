@@ -2,7 +2,7 @@ import * as React from "react";
 // import { hot } from 'react-hot-loader';
 // import MainApp from '../containers/MainAppContainer';
 
-// const reactLogo = require('./../assets/img/react_logo.svg');
+// const reactLogo = require("./../assets/img/react_logo.svg");
 import "./../assets/scss/index.scss";
 
 class App extends React.Component {
@@ -11,7 +11,8 @@ class App extends React.Component {
       <div className="App">
         <section className="todoapp">
           {/* <MainApp /> */}
-          1231231231
+          1231231231777
+          {/* <img src={reactLogo} alt="" /> */}
         </section>
       </div>
     );
