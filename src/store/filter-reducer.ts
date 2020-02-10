@@ -1,13 +1,14 @@
-import { combineReducers } from 'redux';
-import produce from 'immer';
-import uuidv4 from 'uuid/v4';
-
 import * as types from '../actions';
+import { FilterAction } from '../actions';
+
+type FilterState = string;
+
+const initialState: FilterState = 'SHOW_ALL';
 
 // filter reducer
-const filter = (state = 'SHOW_ALL', action: any) => {
+const filter = (state = initialState, action: FilterAction): FilterState => {
   if (action.type === types.SET_FILTER) {
-    return action.filter;
+    return action.payload;
   }
   return state;
 };
