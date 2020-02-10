@@ -4,7 +4,8 @@ import { createLogger } from 'redux-logger';
 import throttle from 'lodash/throttle';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { loadState, saveState } from './helpers/localStorage';
-import rootReducer from './reducer';
+// import rootReducer from './reducer';
+import { rootReducer } from './store/index';
 // mock data
 // import MOCK_DATA from './helpers/MOCK_DATA.json';
 
