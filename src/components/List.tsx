@@ -11,15 +11,25 @@ class List extends React.Component<any, any> {
     (this.props.filter === 'SHOW_ACTIVE' && !todo.completed) ||
     (this.props.filter === 'SHOW_COMPLETED' && todo.completed);
 
-  _renderToggleAll(completedCount: any) {
-    const { todos, activeTodoCount, handleTodoToggleAll } = this.props;
+  _handleTodoToggleAll = () => {
+    const bool = this.props.activeTodoCount === 0 ? false : true;
+    this.props.handleTodoToggleAll(bool);
+  };
+
+  _renderToggleAll() {
+    const {
+      todos,
+      activeTodoCount,
+      handleTodoToggleAll,
+      completedCount,
+    } = this.props;
     if (todos.length) {
       return (
         <input
           className="toggle-all"
           type="checkbox"
-          onChange={handleTodoToggleAll}
-          // checked={activeTodoCount === 0}
+          onChange={this._handleTodoToggleAll}
+          checked={activeTodoCount === 0}
         />
       );
     }
@@ -57,10 +67,9 @@ class List extends React.Component<any, any> {
   }
 
   render() {
-    const { completedCount } = this.props;
     return (
       <section className="main">
-        {this._renderToggleAll(completedCount)}
+        {this._renderToggleAll()}
         <label htmlFor="toggle-all" />
         <ul className="todo-list">{this.renderTodos()}</ul>
       </section>

@@ -38,9 +38,9 @@ export const handleTodoToggle = (id: string) => {
   return typedAction(TOGGLE_TODO + REQUEST, id);
 };
 
-export const handleTodoToggleAll = () => {
+export const handleTodoToggleAll = (bool: boolean) => {
   // return { type: TOGGLE_ALL_TODO + REQUEST };
-  return typedAction(TOGGLE_ALL_TODO);
+  return typedAction(TOGGLE_ALL_TODO + REQUEST, bool);
 };
 
 // export const removeCompleted = () => ({
@@ -48,7 +48,7 @@ export const handleTodoToggleAll = () => {
 // });
 
 export const removeCompleted = () => {
-  return typedAction(TODOS_REMOVE_COMPLETED);
+  return typedAction(TODOS_REMOVE_COMPLETED + REQUEST);
 };
 
 export type TodosAction = ReturnType<

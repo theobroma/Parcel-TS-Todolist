@@ -47,6 +47,13 @@ const todos = produce((draft, action: TodosAction): TodosState => {
       return draft;
     }
 
+    case types.TOGGLE_ALL_TODO + types.REQUEST: {
+      draft.data = draft.data.map((todo: any) => {
+        return { ...todo, completed: action.payload };
+      });
+      return draft;
+    }
+
     case types.TODOS_REMOVE_COMPLETED + types.REQUEST: {
       draft.data = draft.data.filter((todo: any) => !todo.completed);
       return draft;
