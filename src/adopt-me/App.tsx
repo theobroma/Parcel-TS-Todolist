@@ -68,7 +68,7 @@ class App extends React.Component<{}, State> {
     if (this.state.animal) {
       petfinder.breed
         .list({ animal: this.state.animal })
-        .then(data => {
+        .then((data) => {
           if (
             data.petfinder &&
             data.petfinder.breeds &&

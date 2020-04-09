@@ -16,7 +16,7 @@ class Pet extends React.Component<Props> {
     const { name, animal, breed, media, location, id } = this.props;
     let photos: PetPhoto[] = [];
     if (media && media.photos && media.photos.photo) {
-      photos = media.photos.photo.filter(photo => photo['@size'] === 'pn');
+      photos = media.photos.photo.filter((photo) => photo['@size'] === 'pn');
     }
 
     let hero = 'http://placecorgi.com/300/300';

@@ -10,7 +10,7 @@ class Search extends React.Component<Props> {
   public render() {
     return (
       <Consumer>
-        {context => (
+        {(context) => (
           <div className="search-params">
             <form onSubmit={this.handleFormSubmit}>
               <label htmlFor="location">
@@ -31,7 +31,7 @@ class Search extends React.Component<Props> {
                   onBlur={context.handleAnimalChange}
                 >
                   <option />
-                  {ANIMALS.map(animal => (
+                  {ANIMALS.map((animal) => (
                     <option key={animal} value={animal}>
                       {animal}
                     </option>
@@ -48,7 +48,7 @@ class Search extends React.Component<Props> {
                   onBlur={context.handleBreedChange}
                 >
                   <option />
-                  {context.breeds.map(breed => (
+                  {context.breeds.map((breed) => (
                     <option key={breed} value={breed}>
                       {breed}
                     </option>

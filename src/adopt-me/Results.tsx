@@ -41,7 +41,7 @@ class Results extends React.Component<Props & RouteComponentProps, State> {
         breed: this.props.searchParams.breed,
         output: 'full',
       })
-      .then(data => {
+      .then((data) => {
         let pets: PetType[];
         if (data.petfinder.pets && data.petfinder.pets.pet) {
           if (Array.isArray(data.petfinder.pets.pet)) {
@@ -61,7 +61,7 @@ class Results extends React.Component<Props & RouteComponentProps, State> {
     return (
       <div className="search">
         <SearchBox search={this.search} />
-        {this.state.pets.map(pet => {
+        {this.state.pets.map((pet) => {
           let breed;
           if (Array.isArray(pet.breeds.breed)) {
             breed = pet.breeds.breed.join(', ');
@@ -88,7 +88,7 @@ class Results extends React.Component<Props & RouteComponentProps, State> {
 export default function ResultsWithContext(props: RouteComponentProps) {
   return (
     <Consumer>
-      {context => <Results {...props} searchParams={context} />}
+      {(context) => <Results {...props} searchParams={context} />}
     </Consumer>
   );
 }

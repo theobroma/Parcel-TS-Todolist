@@ -5,7 +5,7 @@ import FooterComponent from '../components/Footer';
 
 const Footer = (props: any) => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector((state) => state.filter);
   return (
     <FooterComponent
       // addTodo={this.props.addTodo}

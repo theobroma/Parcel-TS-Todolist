@@ -18,7 +18,7 @@ class Carousel extends React.Component<Props, State> {
   public static getDerivedStateFromProps({ media }: Props) {
     let photos: PetPhoto[] = [];
     if (media && media.photos && media.photos.photo) {
-      photos = media.photos.photo.filter(photo => photo['@size'] === 'pn');
+      photos = media.photos.photo.filter((photo) => photo['@size'] === 'pn');
     }
 
     return { photos };
