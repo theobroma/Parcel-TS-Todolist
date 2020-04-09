@@ -1,7 +1,7 @@
 {
-  "name": "adopt-me",
+  "name": "parcel-ts-todolist",
   "version": "1.0.0",
-  "description": "An app to teach you to write React",
+  "description": "An app to teach you to write React+TS",
   "main": "src/App.tsx",
   "scripts": {
     "test": "",
@@ -12,50 +12,51 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/btholt/complete-intro-to-react-v4.git"
+    "url": "git+https://github.com/theobroma/Parcel-TS-Todolist.git"
   },
-  "author": "Brian Holt <btholt@gmail.com>",
+  "author": "Siriy Aleksandr <theobroma222@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/btholt/complete-intro-to-react-v4/issues"
+    "url": "https://github.com/theobroma/Parcel-TS-Todolist/issues"
   },
-  "homepage": "https://github.com/btholt/complete-intro-to-react-v4#readme",
+  "homepage": "https://github.com/theobroma/Parcel-TS-Todolist#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/preset-react": "^7.8.3",
-    "@types/classnames": "^2.2.9",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@types/classnames": "^2.2.10",
     "@types/lodash": "^4.14.149",
-    "@types/reach__router": "^1.2.6",
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
+    "@types/reach__router": "^1.3.4",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
     "@types/react-redux": "^7.1.7",
     "@types/redux-logger": "^3.0.7",
     "@types/shortid": "0.0.29",
-    "@types/uuid": "^3.4.7",
+    "@types/uuid": "^7.0.2",
     "classnames": "^2.2.6",
-    "immer": "^5.3.4",
+    "immer": "^6.0.3",
     "lodash": "^4.17.15",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^1.19.1",
-    "react-redux": "^7.1.3",
+    "prettier": "^2.0.4",
+    "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.25.0",
+    "sass": "^1.26.3",
     "shortid": "^2.2.15",
-    "tslint": "^6.0.0",
+    "tslint": "^6.1.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.2.0",
-    "typescript": "^3.7.5",
-    "uuid": "^3.4.0"
+    "typescript": "^3.8.3",
+    "uuid": "^7.0.3"
   },
   "dependencies": {
-    "@reach/router": "^1.3.1",
+    "@reach/router": "^1.3.3",
+    "npm-check-updates": "^4.1.2",
     "petfinder-client": "^1.0.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
