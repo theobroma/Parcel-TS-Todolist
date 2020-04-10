@@ -1,23 +1,30 @@
 import produce from 'immer';
-import uuidv4 from 'uuid/v4';
-
+import { v4 as uuidv4 } from 'uuid';
 import * as types from '../actions';
 import { TodosAction } from '../actions';
 import { ITodo } from '../interfaces';
 
-type TodosState = {
-  data: ITodo[];
-  pending: boolean;
-  errorMessage: string;
-};
+// type TodosState = {
+//   data: ITodo[];
+//   pending: boolean;
+//   errorMessage: string;
+// };
 
-const initialState: TodosState = {
-  data: [],
+// const initialState: TodosState = {
+//   data: [],
+//   pending: false,
+//   errorMessage: '',
+// };
+
+const initialState = {
+  data: [] as ITodo[],
   pending: false,
   errorMessage: '',
 };
 
-const todos = produce((draft, action: TodosAction): TodosState => {
+export type TodosStateType = typeof initialState;
+
+const todos = produce((draft, action: TodosAction): TodosStateType => {
   // console.log(action.payload);
   switch (action.type) {
     case types.ADD_TODO + types.REQUEST: {

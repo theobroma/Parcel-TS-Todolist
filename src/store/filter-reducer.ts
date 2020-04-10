@@ -1,12 +1,15 @@
 import * as types from '../actions';
 import { FilterAction } from '../actions';
 
-type FilterState = string;
+const initialState = 'SHOW_ALL' as string;
 
-const initialState: FilterState = 'SHOW_ALL';
+export type FilterStateType = typeof initialState;
 
 // filter reducer
-const filter = (state = initialState, action: FilterAction): FilterState => {
+const filter = (
+  state = initialState,
+  action: FilterAction,
+): FilterStateType => {
   if (action.type === types.SET_FILTER) {
     return action.payload;
   }
