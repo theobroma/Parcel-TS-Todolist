@@ -27,26 +27,24 @@ export type TodosStateType = typeof initialState;
 const todos = produce((draft, action: TodosAction): TodosStateType => {
   // console.log(action.payload);
   switch (action.type) {
-    case types.ADD_TODO + types.REQUEST: {
+    case types.ADD_TODO: {
       const value = {
         _id: uuidv4(),
         completed: false,
-        text: action.payload,
+        text: action.todo,
       };
       draft.data.push(value);
       return draft;
     }
 
-    case types.REMOVE_TODO + types.REQUEST: {
-      draft.data = draft.data.filter(
-        (todo: any) => todo._id !== action.payload,
-      );
+    case types.REMOVE_TODO: {
+      draft.data = draft.data.filter((todo: any) => todo._id !== action.id);
       return draft;
     }
 
-    case types.TOGGLE_TODO + types.REQUEST: {
+    case types.TOGGLE_TODO: {
       draft.data = draft.data.map((todo: any) => {
-        if (todo._id === action.payload.id) {
+        if (todo._id === action.id) {
           return { ...todo, completed: !todo.completed };
         }
         return todo;
@@ -54,14 +52,14 @@ const todos = produce((draft, action: TodosAction): TodosStateType => {
       return draft;
     }
 
-    case types.TOGGLE_ALL_TODO + types.REQUEST: {
+    case types.TOGGLE_ALL_TODO: {
       draft.data = draft.data.map((todo: any) => {
-        return { ...todo, completed: action.payload };
+        return { ...todo, completed: action.bool };
       });
       return draft;
     }
 
-    case types.TODOS_REMOVE_COMPLETED + types.REQUEST: {
+    case types.TODOS_REMOVE_COMPLETED: {
       draft.data = draft.data.filter((todo: any) => !todo.completed);
       return draft;
     }
