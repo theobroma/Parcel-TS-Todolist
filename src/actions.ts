@@ -1,12 +1,13 @@
 // import { Action } from 'redux';
+import { createReducer } from 'typesafe-actions';
 
-export const ADD_TODO = '@@todos/ADD_TODO';
-export const REMOVE_TODO = '@@todos/REMOVE_TODO';
-export const TOGGLE_TODO = '@@todos/TOGGLE_TODO';
-export const TOGGLE_ALL_TODO = '@@todos/TOGGLE_ALL_TODO';
-export const TODOS_REMOVE_COMPLETED = '@@todos/TODOS_REMOVE_COMPLETED';
+export const ADD_TODO = '@@todos/ADD_TODO' as const;
+export const REMOVE_TODO = '@@todos/REMOVE_TODO' as const;
+export const TOGGLE_TODO = '@@todos/TOGGLE_TODO' as const;
+export const TOGGLE_ALL_TODO = '@@todos/TOGGLE_ALL_TODO' as const;
+export const TODOS_REMOVE_COMPLETED = '@@todos/TODOS_REMOVE_COMPLETED' as const;
 
-export const SET_FILTER = '@@filter/SET_FILTER';
+export const SET_FILTER = '@@filter/SET_FILTER' as const;
 
 export const addTodo = (todo: any) => {
   // console.log(todo);
