@@ -16,8 +16,8 @@ const configureStore = () => {
     todos: {
       // data: MOCK_DATA,
       data: [],
-      pending: false,
-      errorMessage: '',
+      // pending: false,
+      // errorMessage: '',
     },
   };
   // if persistedState is not empty then assign parsed persistedState to initState

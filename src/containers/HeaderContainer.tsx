@@ -1,6 +1,6 @@
 import { connect, useSelector, useDispatch } from 'react-redux';
 import * as React from 'react';
-import { addTodo } from '../actions';
+import { addTodo } from '../store/actions';
 import HeaderComponent from '../components/Header';
 // import FooterComponent from '../components/Footer';
 

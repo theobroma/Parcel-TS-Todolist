@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
-import { removeCompleted, setFilter } from '../actions';
+import { removeCompleted, setFilter } from '../store/actions';
 import FooterComponent from '../components/Footer';
 
 const Footer = (props: any) => {

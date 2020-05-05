@@ -3,7 +3,7 @@ import {
   handleTodoRemove,
   handleTodoToggle,
   handleTodoToggleAll,
-} from '../actions';
+} from '../store/actions';
 import * as React from 'react';
 import ListComponent from '../components/List';
 
