@@ -40,12 +40,27 @@ const todosReducer = createReducer<TodoListType, TodoActionType>(initialState, {
     };
   },
   [TOGGLE_TODO]: (state, { payload: id }) => {
-    return state.map((todo) =>
-      todo.id === id ? { ...todo, done: !todo.done } : todo,
+    const data = state.data.map((todo) =>
+      todo._id === id ? { ...todo, completed: !todo.completed } : todo,
     );
+    return {
+      data,
+    };
   },
-  [REMOVE_TODO]: (state, { payload: id }) =>
-    state.filter((todo) => todo.id !== id),
+  [REMOVE_TODO]: (state, { payload: id }) => {
+    return {
+      ...state,
+      data: state.data.filter((todo: any) => todo._id !== id),
+    };
+  },
+  [TOGGLE_ALL_TODO]: (state, { payload: bool }) => {
+    const data = state.data.map((todo) => {
+      return { ...todo, completed: bool };
+    });
+    return {
+      data,
+    };
+  },
 });
 
 // const todos = produce((draft, action: TodosAction): TodosStateType => {

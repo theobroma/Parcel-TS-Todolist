@@ -11,9 +11,15 @@ import {
 
 // create action functions
 export const addTodo = createAction(ADD_TODO)<string>();
-export const toggleTodo = createAction(TOGGLE_TODO)<number>();
-export const removeTodo = createAction(REMOVE_TODO)<number>();
-export const actions = { addTodo, toggleTodo, removeTodo };
+export const handleTodoToggle = createAction(TOGGLE_TODO)<string>();
+export const handleTodoRemove = createAction(REMOVE_TODO)<string>();
+export const handleTodoToggleAll = createAction(TOGGLE_ALL_TODO)<boolean>();
+export const actions = {
+  addTodo,
+  handleTodoToggle,
+  handleTodoRemove,
+  handleTodoToggleAll,
+};
 
 // export const addTodo = (todo: any) => {
 //   // console.log(todo);
