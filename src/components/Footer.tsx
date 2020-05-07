@@ -2,10 +2,16 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 import FilterLink from './FilterLink';
 
-class Footer extends React.Component<any, any> {
-  _renderClearButton() {
+interface Props {
+  count: number;
+  completedCount: number;
+  removeCompleted: () => void;
+}
+
+class Footer extends React.Component<Props> {
+  public _renderClearButton() {
     const { completedCount, removeCompleted } = this.props;
-    if (completedCount > 0 || true) {
+    if (completedCount > 0) {
       return (
         <button className="clear-completed" onClick={removeCompleted}>
           Clear completed
@@ -15,7 +21,7 @@ class Footer extends React.Component<any, any> {
     return null;
   }
 
-  render() {
+  public render() {
     const { count } = this.props;
     return (
       <footer className="footer">

@@ -13,6 +13,7 @@ const Footer = (props: any) => {
       removeCompleted={props.removeCompleted}
       setFilter={props.setFilter}
       count={props.count}
+      completedCount={props.completedCount}
       filter={filter}
     />
   );
