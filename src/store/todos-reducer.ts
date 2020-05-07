@@ -7,7 +7,6 @@ import {
   REMOVE_TODO,
   TOGGLE_ALL_TODO,
   REMOVE_COMPLETED_TODOS,
-  SET_FILTER,
 } from './constants';
 
 import { TodoListType, TodoActionType } from './types';
@@ -59,6 +58,12 @@ const todosReducer = createReducer<TodoListType, TodoActionType>(initialState, {
     });
     return {
       data,
+    };
+  },
+  [REMOVE_COMPLETED_TODOS]: (state) => {
+    return {
+      ...state,
+      data: state.data.filter((todo: any) => !todo.completed),
     };
   },
 });
