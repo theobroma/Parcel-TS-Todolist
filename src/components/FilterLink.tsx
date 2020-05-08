@@ -8,16 +8,20 @@ interface Props {
   setFilter: (type: FilterType) => void;
 }
 
-const FilterLink: React.FC<Props> = ({ setFilter, type, filter, children }) => (
-  <li>
-    <a
-      href="#"
-      onClick={() => setFilter(type)}
-      className={classnames({ selected: filter === type })}
-    >
-      {children}
-    </a>
-  </li>
+const FilterLink: React.FC<Props> = React.memo(
+  ({ setFilter, type, filter, children }) => {
+    return (
+      <li>
+        <a
+          href="#"
+          onClick={() => setFilter(type)}
+          className={classnames({ selected: filter === type })}
+        >
+          {children}
+        </a>
+      </li>
+    );
+  },
 );
 
 export default FilterLink;
