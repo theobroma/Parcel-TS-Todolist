@@ -18,3 +18,4 @@ export type TodoListType = {
 };
 
 export type TodoActionType = ActionType<typeof actions>;
+export type FilterType = 'SHOW_ALL' | 'SHOW_ACTIVE' | 'SHOW_COMPLETED';

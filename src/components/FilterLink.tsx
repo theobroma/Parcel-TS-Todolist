@@ -1,10 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
+import { FilterType } from '../store/types';
 
 interface Props {
-  // type: string;
-  // filter: string;
-  // setFilter: (type: any) => void; //TODO:
+  type: FilterType;
+  filter: FilterType;
+  setFilter: (type: FilterType) => void;
 }
 
 const FilterLink: React.FC<Props> = ({ setFilter, type, filter, children }) => (
