@@ -1,16 +1,15 @@
 import React from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { removeCompleted, setFilter } from '../store/actions';
-import { RootState } from '../store/index';
+import { filterSelector } from '../store/selectors';
 import FooterComponent from '../components/Footer';
 
 const Footer = (props: any) => {
   const dispatch = useDispatch();
-  const filter = useSelector((state: RootState) => state.filter);
+  const filter = useSelector(filterSelector);
+  console.log(props);
   return (
     <FooterComponent
-      // addTodo={this.props.addTodo}
-      //   addTodo={() => dispatch(addTodo('example123123'))}
       removeCompleted={props.removeCompleted}
       setFilter={props.setFilter}
       count={props.count}

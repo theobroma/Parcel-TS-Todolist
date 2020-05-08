@@ -9,10 +9,10 @@ const rootEl = document.getElementById('root');
 const store = configureStore();
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
   rootEl,
 );
-
-// render(<App />, rootEl);
