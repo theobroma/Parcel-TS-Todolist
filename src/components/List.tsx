@@ -17,12 +17,7 @@ class List extends React.Component<any, any> {
   };
 
   _renderToggleAll() {
-    const {
-      todos,
-      activeTodoCount,
-      handleTodoToggleAll,
-      completedCount,
-    } = this.props;
+    const { todos, activeTodoCount } = this.props;
     if (todos.length) {
       return (
         <input
@@ -35,21 +30,6 @@ class List extends React.Component<any, any> {
     }
     return null;
   }
-
-  // _renderTodos() {
-  //   const { todos, handleTodoRemove } = this.props;
-  //   //mock with todoarr if needed
-  //   return todos.filter(this._filterTodos).map((todo: any) => (
-  //     <TodoItem
-  //       key={todo._id}
-  //       todo={todo}
-  //       // addTodo={this.props.addTodo}
-  //       handleTodoRemove={this.props.handleTodoRemove}
-  //       // toggleTodo={this.props.toggleTodo}
-  //       // editTodo={this.props.editTodo}
-  //     />
-  //   ));
-  // }
 
   renderTodos() {
     const { todos = [] } = this.props;
@@ -76,9 +56,5 @@ class List extends React.Component<any, any> {
     );
   }
 }
-
-// List.defaultProps = {
-//   todos: [],
-// };
 
 export default List;
