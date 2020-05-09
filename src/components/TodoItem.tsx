@@ -3,15 +3,10 @@ import { connect, useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 import { actions } from '../store/actions';
 
-import { ITodoItem } from '../interfaces';
+import { TodoType } from '../store/types';
 
-const TodoItem = (props: ITodoItem) => {
-  const {
-    todo: { _id, text, completed },
-  } = props;
-
+const TodoItem = ({ _id, text, completed }: TodoType) => {
   const dispatch = useDispatch();
-
   let element;
   element = (
     <div className="view">
@@ -19,7 +14,6 @@ const TodoItem = (props: ITodoItem) => {
         className="toggle"
         type="checkbox"
         checked={completed}
-        // onChange={() => toggleTodo(_id, completed, text)}
         onChange={() => dispatch(actions.handleTodoToggle(_id))}
       />
       <label
@@ -31,7 +25,6 @@ const TodoItem = (props: ITodoItem) => {
       </label>
       <button
         className="destroy"
-        //  onClick={() => handleTodoRemove(_id)}
         onClick={() => dispatch(actions.handleTodoRemove(_id))}
       />
     </div>

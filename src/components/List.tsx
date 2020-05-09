@@ -1,12 +1,9 @@
 import React from 'react';
-import * as cx from 'classnames';
-import { connect } from 'react-redux';
-// mock data if needed
-// import todoarr from '../helpers/mockdata';
 import TodoItem from './TodoItem';
+import { TodoType } from '../store/types';
 
 class List extends React.Component<any, any> {
-  _filterTodos = (todo: any) =>
+  _filterTodos = (todo: TodoType) =>
     this.props.filter === 'SHOW_ALL' ||
     (this.props.filter === 'SHOW_ACTIVE' && !todo.completed) ||
     (this.props.filter === 'SHOW_COMPLETED' && todo.completed);
@@ -36,12 +33,12 @@ class List extends React.Component<any, any> {
 
     return todos
       .filter(this._filterTodos)
-      .map((todo: any) => (
+      .map((todo: TodoType) => (
         <TodoItem
           key={todo._id}
-          todo={todo}
-          handleTodoRemove={this.props.handleTodoRemove}
-          handleTodoToggle={this.props.handleTodoToggle}
+          _id={todo._id}
+          text={todo.text}
+          completed={todo.completed}
         />
       ));
   }

@@ -7,7 +7,6 @@ import FooterComponent from '../components/Footer';
 const Footer = (props: any) => {
   const dispatch = useDispatch();
   const filter = useSelector(filterSelector);
-  console.log(props);
   return (
     <FooterComponent
       removeCompleted={props.removeCompleted}

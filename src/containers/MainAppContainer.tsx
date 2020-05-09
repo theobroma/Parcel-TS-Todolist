@@ -3,10 +3,11 @@ import { connect, useSelector, useDispatch } from 'react-redux';
 import HeaderContainer from '../containers/HeaderContainer';
 import ListContainer from '../containers/ListContainer';
 import FooterContainer from '../containers/FooterContainer';
+import { todosSelector } from '../store/selectors';
 
 const MainApp: React.FC = (props: any) => {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos.data);
+  const todos = useSelector(todosSelector).data;
 
   const activeTodoCount = todos.reduce((accum: any, todo: any) => {
     return todo.completed ? accum : accum + 1;
