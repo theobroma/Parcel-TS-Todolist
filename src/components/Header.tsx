@@ -1,33 +1,18 @@
 import * as React from 'react';
+import { connect, useSelector, useDispatch } from 'react-redux';
+import { actions } from '../store/actions';
 // test comment
 import TodoTextInput from './TodoTextInput';
 
-// export default class Header extends React.Component<any> {
-//   handleSave(text: string) {
-//     if (text.length !== 0) {
-//       this.props.addTodo(text);
-//     }
-//   }
-//   //onSave same name method as in TodoItem component
-//   //caused by reuse in different components: this and TodoItem as edit input
-//   render() {
-//     return (
-//       <header className="header">
-//         <h1>todos</h1>
-//         <TodoTextInput
-//           // newTodo
-//           onSave={this.handleSave.bind(this)}
-//           // placeholder="What needs to be done?"
-//         />
-//       </header>
-//     );
-//   }
-// }
+interface Props {
+  // addTodo: (text: string) => void;
+}
 
-const Header = (props: any) => {
+const Header: React.FC<Props> = React.memo((props) => {
+  const dispatch = useDispatch();
   const handleSave = (text: string) => {
     if (text.length !== 0) {
-      props.addTodo(text);
+      dispatch(actions.addTodo(text));
     }
   };
 
@@ -41,6 +26,6 @@ const Header = (props: any) => {
       />
     </header>
   );
-};
+});
 
 export default Header;
