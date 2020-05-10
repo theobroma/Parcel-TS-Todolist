@@ -1,38 +1,46 @@
 import React from 'react';
+import { connect, useSelector, useDispatch } from 'react-redux';
+import { actions } from '../store/actions';
+import { todosSelector, filterSelector } from '../store/selectors';
 import TodoItem from './TodoItem';
 import { TodoType } from '../store/types';
 
-class List extends React.Component<any, any> {
-  _filterTodos = (todo: TodoType) =>
-    this.props.filter === 'SHOW_ALL' ||
-    (this.props.filter === 'SHOW_ACTIVE' && !todo.completed) ||
-    (this.props.filter === 'SHOW_COMPLETED' && todo.completed);
+interface Props {
+  activeTodoCount: number;
+}
 
-  _handleTodoToggleAll = () => {
-    const bool = this.props.activeTodoCount === 0 ? false : true;
-    this.props.handleTodoToggleAll(bool);
+const List: React.FC<Props> = React.memo(({ activeTodoCount }) => {
+  const dispatch = useDispatch();
+  const todos = useSelector(todosSelector).data;
+  const filter = useSelector(filterSelector);
+
+  const _handleTodoToggleAll = () => {
+    const bool = activeTodoCount === 0 ? false : true;
+    dispatch(actions.handleTodoToggleAll(bool));
   };
 
-  _renderToggleAll() {
-    const { todos, activeTodoCount } = this.props;
+  const renderToggleAll = () => {
     if (todos.length) {
       return (
         <input
           className="toggle-all"
           type="checkbox"
-          onChange={this._handleTodoToggleAll}
+          onChange={_handleTodoToggleAll}
           checked={activeTodoCount === 0}
         />
       );
     }
     return null;
-  }
+  };
 
-  renderTodos() {
-    const { todos = [] } = this.props;
+  const _filterTodos = (todo: TodoType) =>
+    filter === 'SHOW_ALL' ||
+    (filter === 'SHOW_ACTIVE' && !todo.completed) ||
+    (filter === 'SHOW_COMPLETED' && todo.completed);
 
+  const renderTodos = () => {
     return todos
-      .filter(this._filterTodos)
+      .filter(_filterTodos)
       .map((todo: TodoType) => (
         <TodoItem
           key={todo._id}
@@ -41,17 +49,15 @@ class List extends React.Component<any, any> {
           completed={todo.completed}
         />
       ));
-  }
+  };
 
-  render() {
-    return (
-      <section className="main">
-        {this._renderToggleAll()}
-        <label htmlFor="toggle-all" />
-        <ul className="todo-list">{this.renderTodos()}</ul>
-      </section>
-    );
-  }
-}
+  return (
+    <section className="main">
+      {renderToggleAll()}
+      <label htmlFor="toggle-all" />
+      <ul className="todo-list">{renderTodos()}</ul>
+    </section>
+  );
+});
 
 export default List;

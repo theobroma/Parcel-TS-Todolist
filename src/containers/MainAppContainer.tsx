@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import HeaderComponent from '../components/Header';
-import ListContainer from '../containers/ListContainer';
+import ListComponent from '../components/List';
 import FooterContainer from '../containers/FooterContainer';
 import { todosSelector } from '../store/selectors';
 
@@ -31,7 +31,7 @@ const MainApp: React.FC = (props: any) => {
       {/*Header*/}
       <HeaderComponent />
       {/*Main*/}
-      <ListContainer activeTodoCount={activeTodoCount} />
+      <ListComponent activeTodoCount={activeTodoCount} />
       {/*Footer*/}
       {footer}
     </div>
