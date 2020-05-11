@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { actions } from '../store/actions';
 // test comment
 import TodoTextInput from './TodoTextInput';
 
+// tslint:disable-next-line:no-empty-interface
 interface Props {
   // addTodo: (text: string) => void;
 }

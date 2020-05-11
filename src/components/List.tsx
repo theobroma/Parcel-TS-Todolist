@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../store/actions';
 import { todosSelector, filterSelector } from '../store/selectors';
 import TodoItem from './TodoItem';

@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import HeaderComponent from '../components/Header';
 import ListComponent from '../components/List';
-import FooterContainer from '../containers/FooterContainer';
+import FooterComponent from '../components/Footer';
 import { todosSelector } from '../store/selectors';
 
 const MainApp: React.FC = (props: any) => {
-  const dispatch = useDispatch();
   const todos = useSelector(todosSelector).data;
 
   const activeTodoCount = todos.reduce((accum: any, todo: any) => {
@@ -19,8 +18,8 @@ const MainApp: React.FC = (props: any) => {
 
   if (activeTodoCount || completedCount) {
     footer = (
-      <FooterContainer
-        count={activeTodoCount}
+      <FooterComponent
+        activeTodoCount={activeTodoCount}
         completedCount={completedCount}
       />
     );
@@ -38,4 +37,4 @@ const MainApp: React.FC = (props: any) => {
   );
 };
 
-export default connect(null, {})(MainApp);
+export default MainApp;
