@@ -15,14 +15,15 @@ interface Props {
 const Footer: React.FC<Props> = React.memo(
   ({ activeTodoCount, completedCount }) => {
     const dispatch = useDispatch();
-    const handleClick = () => {
-      dispatch(actions.removeCompleted);
+
+    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      dispatch(actions.removeCompleted());
     };
 
     const renderClearButton = () => {
       if (completedCount > 0) {
         return (
-          <button className="clear-completed" onClick={handleClick}>
+          <button className="clear-completed" onClick={handleButtonClick}>
             Clear completed
           </button>
         );
