@@ -13,9 +13,9 @@ class TodoTextInput extends Component<any, any> {
     text: '',
   };
 
-  handleSubmit = (e: any) => {
-    const text = e.target.value.trim();
-    if (e.which === 13) {
+  handleSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const text: string = event.currentTarget.value.trim();
+    if (event.which === 13) {
       this.props.onSave(text);
       // TODO:
       this.setState({ text: '' });
@@ -25,14 +25,15 @@ class TodoTextInput extends Component<any, any> {
     }
   };
 
-  handleChange = (e: any) => {
-    // console.log('handleChange');
-    this.setState({ text: e.target.value });
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const text: string = event.currentTarget.value.trim();
+    this.setState({ text });
   };
 
-  handleBlur = (e: any) => {
+  handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (!this.props.newTodo) {
-      this.props.onSave(e.target.value);
+      const text: string = event.currentTarget.value.trim();
+      this.props.onSave(text);
       this.setState({ text: '' });
     }
   };
@@ -54,7 +55,6 @@ class TodoTextInput extends Component<any, any> {
           onChange={this.handleChange}
           onKeyDown={this.handleSubmit}
         />
-        {/* <pre>{JSON.stringify(this.state, null, 4)}</pre> */}
       </Fragment>
     );
   }
