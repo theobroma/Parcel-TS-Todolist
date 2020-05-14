@@ -1,46 +1,47 @@
-import React, { Component, Fragment, useState } from 'react';
-import classNames from 'classnames';
+import React, { useState } from 'react';
+interface Props {
+  placeholder?: string;
+  editing?: boolean;
+  newTodo?: boolean;
+  onSave: (text: string) => void;
+}
 
-class TodoTextInput extends Component<any, any> {
-  static defaultProps = {
-    text: '',
-    placeholder: 'What needs to be done?',
-    editing: false,
-    newTodo: false,
-  };
+const TodoTextInput: React.FC<Props> = React.memo(
+  ({
+    placeholder = 'What needs to be done?1111',
+    editing = false,
+    newTodo = false,
+    onSave,
+  }) => {
+    const [text, setText] = useState('');
 
-  state = {
-    text: '',
-  };
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = event.currentTarget.value.trim();
+      setText(value);
+    };
 
-  handleSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const text: string = event.currentTarget.value.trim();
-    if (event.which === 13) {
-      this.props.onSave(text);
-      // TODO:
-      this.setState({ text: '' });
-      // if (this.props.newTodo) {
-      //   this.setState({ text: '' });
+    const handleSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      const value = event.currentTarget.value.trim();
+      if (event.which === 13) {
+        onSave(value);
+        // TODO:
+        setText(' ');
+        // if (this.props.newTodo) {
+        //   this.setState({ text: '' });
+        // }
+      }
+    };
+
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+      // if (!props.newTodo) {
+      const value = event.currentTarget.value.trim();
+      onSave(value);
+      setText(' ');
       // }
-    }
-  };
+    };
 
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const text: string = event.currentTarget.value.trim();
-    this.setState({ text });
-  };
-
-  handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    if (!this.props.newTodo) {
-      const text: string = event.currentTarget.value.trim();
-      this.props.onSave(text);
-      this.setState({ text: '' });
-    }
-  };
-
-  render() {
     return (
-      <Fragment>
+      <>
         <input
           // className={classNames({
           //   edit: this.props.editing,
@@ -48,16 +49,16 @@ class TodoTextInput extends Component<any, any> {
           // })}
           className="new-todo"
           type="text"
-          placeholder={this.props.placeholder}
+          placeholder={placeholder}
           autoFocus={true}
-          value={this.state.text}
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          onKeyDown={this.handleSubmit}
+          value={text}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          onKeyDown={handleSubmit}
         />
-      </Fragment>
+      </>
     );
-  }
-}
+  },
+);
 
 export default TodoTextInput;

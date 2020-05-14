@@ -20,11 +20,7 @@ const Header: React.FC<Props> = React.memo((props) => {
   return (
     <header className="header">
       <h1>todos</h1>
-      <TodoTextInput
-        // newTodo
-        onSave={handleSave}
-        // placeholder="What needs to be done?"
-      />
+      <TodoTextInput onSave={handleSave} />
     </header>
   );
 });
