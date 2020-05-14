@@ -7,8 +7,6 @@ import { FilterType } from '../store/types';
 
 interface Props {
   type: FilterType;
-  // filter: FilterType;
-  // setFilter: (type: FilterType) => void;
 }
 
 const FilterLink: React.FC<Props> = React.memo(({ type, children }) => {

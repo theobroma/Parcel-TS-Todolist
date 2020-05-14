@@ -26,13 +26,17 @@ const MainApp: React.FC = (props: any) => {
   }
 
   return (
-    <div>
-      {/*Header*/}
-      <HeaderComponent />
-      {/*Main*/}
-      <ListComponent activeTodoCount={activeTodoCount} />
-      {/*Footer*/}
-      {footer}
+    <div className="App">
+      <section className="todoapp">
+        <div>
+          {/*Header*/}
+          <HeaderComponent />
+          {/*Main*/}
+          <ListComponent activeTodoCount={activeTodoCount} />
+          {/*Footer*/}
+          {footer}
+        </div>
+      </section>
     </div>
   );
 };

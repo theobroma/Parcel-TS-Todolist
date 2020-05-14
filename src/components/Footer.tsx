@@ -6,10 +6,6 @@ import FilterLink from './FilterLink';
 interface Props {
   activeTodoCount: number;
   completedCount: number;
-  // removeCompleted: () => void;
-  // FilterLinkProps
-  // filter: FilterType;
-  // setFilter: (type: FilterType) => void;
 }
 
 const Footer: React.FC<Props> = React.memo(
