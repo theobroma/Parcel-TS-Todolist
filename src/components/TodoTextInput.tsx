@@ -13,7 +13,8 @@ class TodoTextInput extends Component<any, any> {
     text: '',
   };
 
-  handleSubmit = (e: any) => {
+  handleSubmit = (e: React.KeyboardEvent) => {
+    console.log(e.target.value);
     const text = e.target.value.trim();
     if (e.which === 13) {
       this.props.onSave(text);
