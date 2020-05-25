@@ -5,7 +5,7 @@
   "main": "src/App.tsx",
   "scripts": {
     "test": "",
-    "format": "prettier --write \"src/**/*.{js,jsx,tsx}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "tslint --project .",
     "dev": "parcel src/index.html",
     "typecheck": "tsc --noEmit"
