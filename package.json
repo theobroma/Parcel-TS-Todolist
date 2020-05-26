@@ -4,10 +4,10 @@
   "description": "An app to teach you to write React+TS",
   "main": "src/App.tsx",
   "scripts": {
-    "test": "",
+    "test": "jest --watch",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "tslint --project .",
-    "dev": "parcel src/index.html",
+    "start": "parcel src/index.html",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
@@ -26,6 +26,9 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@types/classnames": "^2.2.10",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.2.3",
     "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
@@ -51,8 +54,13 @@
     "uuid": "^7.0.3"
   },
   "dependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "jest": "^26.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "ts-jest": "^26.0.0",
     "typesafe-actions": "^5.1.0"
   }
 }
