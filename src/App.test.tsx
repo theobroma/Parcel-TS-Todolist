@@ -4,8 +4,12 @@ import App from './App';
 
 describe('App', () => {
   const app = shallow(<App />);
-
+  it('App renders without crashing', () => {
+    expect(app.exists()).toEqual(true);
+  });
   it('renders the title', () => {
     expect(app.find('h1').exists()).toBe(true);
   });
+  // Snapshot demo
+  expect(shallow).toMatchSnapshot();
 });

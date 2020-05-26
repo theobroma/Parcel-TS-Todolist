@@ -4,7 +4,7 @@
   "description": "An app to teach you to write React+TS",
   "main": "src/App.tsx",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "tslint --project .",
     "start": "parcel src/index.html",
