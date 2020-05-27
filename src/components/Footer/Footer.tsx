@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { actions } from '../store/actions';
-import FilterLink from './FilterLink';
+import { actions } from '../../store/actions';
+import FilterLink from './FilterLink/FilterLink';
 
 interface Props {
   activeTodoCount: number;

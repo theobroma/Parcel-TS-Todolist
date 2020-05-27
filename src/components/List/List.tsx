@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { actions } from '../store/actions';
-import { todosSelector, filterSelector } from '../store/selectors';
-import TodoItem from './TodoItem';
-import { TodoType } from '../store/types';
+import { actions } from '../../store/actions';
+import { todosSelector, filterSelector } from '../../store/selectors';
+import TodoItem from './TodoItem/TodoItem';
+import { TodoType } from '../../store/types';
 
 interface Props {
   activeTodoCount: number;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import HeaderComponent from '../components/Header';
-import ListComponent from '../components/List';
-import FooterComponent from '../components/Footer';
+import HeaderComponent from '../components/Header/Header';
+import ListComponent from '../components/List/List';
+import FooterComponent from '../components/Footer/Footer';
 import { todosSelector } from '../store/selectors';
 
 const MainApp: React.FC = (props: any) => {

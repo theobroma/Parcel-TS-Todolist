@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { actions } from '../store/actions';
+import { actions } from '../../store/actions';
 // test comment
-import TodoTextInput from './TodoTextInput';
+import TodoTextInput from './TodoTextInput/TodoTextInput';
 
 // tslint:disable-next-line:no-empty-interface
 interface Props {

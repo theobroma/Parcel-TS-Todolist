@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
-import { actions } from '../store/actions';
+import { actions } from '../../../store/actions';
 
-import { TodoType } from '../store/types';
+import { TodoType } from '../../../store/types';
 
 const TodoItem = ({ _id, text, completed }: TodoType) => {
   const dispatch = useDispatch();
