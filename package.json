@@ -8,6 +8,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "tslint --project .",
     "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
