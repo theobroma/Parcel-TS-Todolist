@@ -1,67 +1,31 @@
 {
-  "name": "parcel-ts-todolist",
+  "name": "react-ts-todolist-with-hooks",
   "version": "1.0.0",
-  "description": "An app to teach you to write React+TS",
-  "main": "src/App.tsx",
-  "scripts": {
-    "test": "jest",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "tslint --project .",
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
-    "typecheck": "tsc --noEmit"
+  "description": "React+typescript application.",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^5.2.0"
   },
+  "devDependencies": {},
+  "engines": {
+    "node": "12.16.3"
+},
+  "scripts": {
+    "build": "cd client && npm run build",
+    "install": "(cd server && npm install) && (cd client && npm install)",
+    "start:prod": "cd server && npm start",
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/theobroma/Parcel-TS-Todolist.git"
+    "url": "git+https://github.com/theobroma/react-ts-todolist-with-hooks"
   },
-  "author": "Siriy Aleksandr <theobroma222@gmail.com>",
-  "license": "Apache-2.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/theobroma/Parcel-TS-Todolist/issues"
+    "url": "https://github.com/theobroma/react-ts-todolist-with-hooks/issues"
   },
-  "homepage": "https://github.com/theobroma/Parcel-TS-Todolist#readme",
-  "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-react": "^7.9.4",
-    "@types/classnames": "^2.2.10",
-    "@types/enzyme": "^3.10.5",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
-    "@types/jest": "^25.2.3",
-    "@types/lodash": "^4.14.149",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.6",
-    "@types/react-redux": "^7.1.7",
-    "@types/redux-logger": "^3.0.7",
-    "@types/shortid": "0.0.29",
-    "@types/uuid": "^7.0.2",
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.15",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^2.0.4",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "sass": "^1.26.3",
-    "shortid": "^2.2.15",
-    "tslint": "^6.1.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.2.0",
-    "typescript": "^3.8.3",
-    "uuid": "^7.0.3"
-  },
-  "dependencies": {
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-to-json": "^3.4.4",
-    "jest": "^26.0.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "ts-jest": "^26.0.0",
-    "typesafe-actions": "^5.1.0"
-  }
+  "homepage": "https://github.com/theobroma/react-ts-todolist-with-hooks#readme"
 }
