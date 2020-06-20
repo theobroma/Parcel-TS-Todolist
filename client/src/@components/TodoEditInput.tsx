@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { todosSelector } from '../@store/selectors';
+import { actions } from '../@store/actions';
 
 interface Props {
   placeholder?: string;
@@ -14,6 +17,8 @@ const TodoEditInput: React.FC<Props> = React.memo(
     // newTodo = false,
     // onSave,
   }) => {
+    const dispatch = useDispatch();
+    const { editingTodoTitle } = useSelector(todosSelector);
     const [text, setText] = useState('');
 
     // const inputRef = useRef<HTMLInputElement>(null);
@@ -51,9 +56,12 @@ const TodoEditInput: React.FC<Props> = React.memo(
     return (
       <input
         className="edit"
-        value="value"
-        // value={state.editingTodoTitle}
-        // onBlur={() => actions.saveEditingTodoTitle()}
+        // value="value"
+        value={editingTodoTitle}
+        onBlur={() => dispatch(actions.saveEditingTodoTitle())}
+        onChange={(event) =>
+          dispatch(actions.changeEditingTodoTitle(event.currentTarget.value))
+        }
         // onChange={(event) =>
         //   actions.changeEditingTodoTitle(event.currentTarget.value)
         // }

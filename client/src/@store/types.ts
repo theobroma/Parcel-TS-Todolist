@@ -3,14 +3,14 @@ import { actions } from './actions';
 
 export interface TodoType {
   _id: string;
-  text: string;
+  text: string | undefined;
   completed: boolean;
 }
 
 export type TodoListType = {
   data: TodoType[];
   editingTodoId: string | null;
-  editingTodoTitle: string;
+  editingTodoTitle: string | undefined;
 };
 
 export type TodoActionType = ActionType<typeof actions>;
