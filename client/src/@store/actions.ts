@@ -6,6 +6,7 @@ import {
   TOGGLE_ALL_TODO,
   REMOVE_COMPLETED_TODOS,
   SET_FILTER,
+  EDIT_TODO,
 } from './constants';
 
 // create action functions
@@ -14,12 +15,14 @@ export const handleTodoToggle = createAction(TOGGLE_TODO)<string>();
 export const handleTodoRemove = createAction(REMOVE_TODO)<string>();
 export const handleTodoToggleAll = createAction(TOGGLE_ALL_TODO)<boolean>();
 export const removeCompleted = createAction(REMOVE_COMPLETED_TODOS)();
+export const editTodo = createAction(EDIT_TODO)<string>();
 export const actions = {
   addTodo,
   handleTodoToggle,
   handleTodoRemove,
   handleTodoToggleAll,
   removeCompleted,
+  editTodo,
 };
 
 export const setFilter = (filter: string) => {

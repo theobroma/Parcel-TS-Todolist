@@ -2,18 +2,18 @@ import * as React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import cx from 'classnames';
 import { actions } from '../@store/actions';
-
 import { TodoType } from '../@store/types';
+import TodoEditInput from './TodoEditInput';
 
 interface Props {
   todo: TodoType;
-  // isEditing: boolean;
+  isEditing: boolean;
 }
 
-const TodoItem: React.FC<Props> = ({ todo }) => {
+const TodoItem: React.FC<Props> = ({ todo, isEditing }) => {
   const dispatch = useDispatch();
-  let element;
-  element = (
+
+  const element = (
     <div className="view">
       <input
         className="toggle"
@@ -24,7 +24,7 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
       <label
         htmlFor="itself"
         // edit
-        // onDoubleClick={() => dispatch(handleTodoToggle(_id))}
+        onDoubleClick={() => dispatch(actions.editTodo(todo._id))}
       >
         {todo.text}
       </label>
@@ -35,14 +35,17 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
       />
     </div>
   );
+
   return (
     <li
       className={cx({
         completed: todo.completed,
-        //  editing: this.state.editing
+        editing: isEditing,
       })}
     >
       {element}
+      {/* isEditing */}
+      {isEditing ? <TodoEditInput /> : null}
     </li>
   );
 };

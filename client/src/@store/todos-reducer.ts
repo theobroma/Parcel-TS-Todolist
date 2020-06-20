@@ -6,6 +6,7 @@ import {
   REMOVE_TODO,
   TOGGLE_ALL_TODO,
   REMOVE_COMPLETED_TODOS,
+  EDIT_TODO,
 } from './constants';
 
 import { TodoListType, TodoActionType, TodoType } from './types';
@@ -54,6 +55,13 @@ const todosReducer = createReducer<TodoListType, TodoActionType>(
       return {
         ...state,
         data: state.data.filter((todo: TodoType) => !todo.completed),
+      };
+    },
+    [EDIT_TODO]: (state, { payload: id }) => {
+      return {
+        ...state,
+        editingTodoId: id,
+        editingTodoTitle: id,
       };
     },
   },

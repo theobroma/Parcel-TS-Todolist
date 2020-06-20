@@ -11,7 +11,9 @@ interface Props {
 
 const List: React.FC<Props> = React.memo(({ activeTodoCount }) => {
   const dispatch = useDispatch();
-  const todos = useSelector(todosSelector).data;
+  const { data: todos, editingTodoId, editingTodoTitle } = useSelector(
+    todosSelector,
+  );
   const filter = useSelector(filterSelector);
 
   const _handleTodoToggleAll = () => {
@@ -43,13 +45,15 @@ const List: React.FC<Props> = React.memo(({ activeTodoCount }) => {
     (filter === 'SHOW_COMPLETED' && todo.completed);
 
   const renderTodos = () => {
-    return todos.filter(_filterTodos).map((todo: TodoType) => (
-      <TodoItem
-        key={todo._id}
-        todo={todo}
-        // isEditing={state.editingTodoId === todo.id}
-      />
-    ));
+    return todos
+      .filter(_filterTodos)
+      .map((todo: TodoType) => (
+        <TodoItem
+          key={todo._id}
+          todo={todo}
+          isEditing={editingTodoId === todo._id}
+        />
+      ));
   };
 
   return (
