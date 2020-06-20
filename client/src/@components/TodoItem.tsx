@@ -5,7 +5,12 @@ import { actions } from '../@store/actions';
 
 import { TodoType } from '../@store/types';
 
-const TodoItem = ({ _id, text, completed }: TodoType) => {
+interface Props {
+  todo: TodoType;
+  // isEditing: boolean;
+}
+
+const TodoItem: React.FC<Props> = ({ todo }) => {
   const dispatch = useDispatch();
   let element;
   element = (
@@ -13,27 +18,27 @@ const TodoItem = ({ _id, text, completed }: TodoType) => {
       <input
         className="toggle"
         type="checkbox"
-        checked={completed}
-        onChange={() => dispatch(actions.handleTodoToggle(_id))}
+        checked={todo.completed}
+        onChange={() => dispatch(actions.handleTodoToggle(todo._id))}
       />
       <label
         htmlFor="itself"
         // edit
         // onDoubleClick={() => dispatch(handleTodoToggle(_id))}
       >
-        {text}
+        {todo.text}
       </label>
       <button
         type="button"
         className="destroy"
-        onClick={() => dispatch(actions.handleTodoRemove(_id))}
+        onClick={() => dispatch(actions.handleTodoRemove(todo._id))}
       />
     </div>
   );
   return (
     <li
       className={cx({
-        completed,
+        completed: todo.completed,
         //  editing: this.state.editing
       })}
     >

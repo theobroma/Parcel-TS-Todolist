@@ -43,16 +43,13 @@ const List: React.FC<Props> = React.memo(({ activeTodoCount }) => {
     (filter === 'SHOW_COMPLETED' && todo.completed);
 
   const renderTodos = () => {
-    return todos
-      .filter(_filterTodos)
-      .map((todo: TodoType) => (
-        <TodoItem
-          key={todo._id}
-          _id={todo._id}
-          text={todo.text}
-          completed={todo.completed}
-        />
-      ));
+    return todos.filter(_filterTodos).map((todo: TodoType) => (
+      <TodoItem
+        key={todo._id}
+        todo={todo}
+        // isEditing={state.editingTodoId === todo.id}
+      />
+    ));
   };
 
   return (
