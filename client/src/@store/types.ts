@@ -9,6 +9,8 @@ export interface TodoType {
 
 export type TodoListType = {
   data: TodoType[];
+  editingTodoId: string | null;
+  editingTodoTitle: string;
 };
 
 export type TodoActionType = ActionType<typeof actions>;

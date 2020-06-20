@@ -5,15 +5,15 @@ import throttle from 'lodash/throttle';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { loadState, saveState } from './@utils/localStorage';
 import { rootReducer, RootState } from './@store/index';
+import { todosInitialState } from './@store/todos-reducer';
+import { filterInitialState } from './@store/filter-reducer';
 
 const configureStore = () => {
   const persistedState = loadState();
 
   let totalInitialState: RootState = {
-    filter: 'SHOW_ALL',
-    todos: {
-      data: [],
-    },
+    filter: filterInitialState,
+    todos: todosInitialState,
   };
   // if persistedState is not empty then assign parsed persistedState to initState
   if (persistedState) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface Props {
   placeholder?: string;
@@ -10,11 +10,19 @@ interface Props {
 const TodoTextInput: React.FC<Props> = React.memo(
   ({
     placeholder = 'What needs to be done?',
-    editing = false,
-    newTodo = false,
+    // editing = false,
+    // newTodo = false,
     onSave,
   }) => {
     const [text, setText] = useState('');
+
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    }, [inputRef]);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.currentTarget.value.trim();
@@ -25,7 +33,6 @@ const TodoTextInput: React.FC<Props> = React.memo(
       const value = event.currentTarget.value.trim();
       if (event.which === 13) {
         onSave(value);
-        // TODO:
         setText(' ');
         // if (this.props.newTodo) {
         //   this.setState({ text: '' });
@@ -51,7 +58,7 @@ const TodoTextInput: React.FC<Props> = React.memo(
           className="new-todo"
           type="text"
           placeholder={placeholder}
-          autoFocus
+          ref={inputRef}
           value={text}
           onBlur={handleBlur}
           onChange={handleChange}

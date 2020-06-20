@@ -3,9 +3,9 @@ import { SET_FILTER } from './constants';
 import { FilterAction } from './actions';
 // import { FilterType } from './types';
 
-const initialState = 'SHOW_ALL';
+export const filterInitialState = 'SHOW_ALL';
 
-const filter = (state = initialState, action: FilterAction): string => {
+const filter = (state = filterInitialState, action: FilterAction): string => {
   if (action.type === SET_FILTER) {
     return action.payload;
   }
