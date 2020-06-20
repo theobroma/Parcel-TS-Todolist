@@ -19,7 +19,7 @@ export const handleTodoRemove = createAction(REMOVE_TODO)<string>();
 export const handleTodoToggleAll = createAction(TOGGLE_ALL_TODO)<boolean>();
 export const removeCompleted = createAction(REMOVE_COMPLETED_TODOS)();
 export const editTodo = createAction(EDIT_TODO)<string>();
-export const cancelEditTodo = createAction(CANCEL_EDIT_TODO)();
+export const cancelEditingTodo = createAction(CANCEL_EDIT_TODO)();
 export const changeEditingTodoTitle = createAction(CHANGE_EDITING_TODO_TITLE)<
   string
 >();
@@ -31,7 +31,7 @@ export const actions = {
   handleTodoToggleAll,
   removeCompleted,
   editTodo,
-  cancelEditTodo,
+  cancelEditingTodo,
   changeEditingTodoTitle,
   saveEditingTodoTitle,
 };

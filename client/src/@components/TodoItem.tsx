@@ -23,7 +23,6 @@ const TodoItem: React.FC<Props> = ({ todo, isEditing }) => {
       />
       <label
         htmlFor="itself"
-        // edit
         onDoubleClick={() => dispatch(actions.editTodo(todo._id))}
       >
         {todo.text}

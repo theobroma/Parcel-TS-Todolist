@@ -11,9 +11,7 @@ interface Props {
 
 const List: React.FC<Props> = React.memo(({ activeTodoCount }) => {
   const dispatch = useDispatch();
-  const { data: todos, editingTodoId, editingTodoTitle } = useSelector(
-    todosSelector,
-  );
+  const { data: todos, editingTodoId } = useSelector(todosSelector);
   const filter = useSelector(filterSelector);
 
   const _handleTodoToggleAll = () => {
