@@ -1,12 +1,40 @@
 import React from 'react';
-import TodoApp from '../../@components/TodoApp';
+import { useSelector } from 'react-redux';
+import HeaderComponent from '../../@components/Header';
+import ListComponent from '../../@components/List';
+import FooterComponent from '../../@components/Footer';
+import { todosSelector } from '../../@store/selectors';
 
-const MainApp: React.FC = () => {
+const MainApp: React.FC = (props: any) => {
+  const todos = useSelector(todosSelector).data;
+
+  const activeTodoCount = todos.reduce((accum: any, todo: any) => {
+    return todo.completed ? accum : accum + 1;
+  }, 0);
+
+  const completedCount = todos.length - activeTodoCount;
+
+  let footer;
+
+  if (activeTodoCount || completedCount) {
+    footer = (
+      <FooterComponent
+        activeTodoCount={activeTodoCount}
+        completedCount={completedCount}
+      />
+    );
+  }
+
   return (
     <div className="App">
       <section className="todoapp">
         <div>
-          <TodoApp />
+          {/*Header*/}
+          <HeaderComponent />
+          {/*Main*/}
+          <ListComponent activeTodoCount={activeTodoCount} />
+          {/*Footer*/}
+          {footer}
         </div>
       </section>
     </div>
