@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import cx from 'classnames';
 import { actions } from '../@store/actions';
 
@@ -24,6 +24,7 @@ const TodoItem = ({ _id, text, completed }: TodoType) => {
         {text}
       </label>
       <button
+        type="button"
         className="destroy"
         onClick={() => dispatch(actions.handleTodoRemove(_id))}
       />
@@ -32,8 +33,7 @@ const TodoItem = ({ _id, text, completed }: TodoType) => {
   return (
     <li
       className={cx({
-        // tslint:disable-next-line
-        completed: completed,
+        completed,
         //  editing: this.state.editing
       })}
     >

@@ -8,7 +8,7 @@ import {
   REMOVE_COMPLETED_TODOS,
 } from './constants';
 
-import { TodoListType, TodoActionType } from './types';
+import { TodoListType, TodoActionType, TodoType } from './types';
 
 const initialState: TodoListType = {
   data: [],
@@ -39,7 +39,7 @@ const todosReducer = createReducer<TodoListType, TodoActionType>(initialState, {
   [REMOVE_TODO]: (state, { payload: id }) => {
     return {
       ...state,
-      data: state.data.filter((todo: any) => todo._id !== id),
+      data: state.data.filter((todo: TodoType) => todo._id !== id),
     };
   },
   [TOGGLE_ALL_TODO]: (state, { payload: bool }) => {
@@ -53,7 +53,7 @@ const todosReducer = createReducer<TodoListType, TodoActionType>(initialState, {
   [REMOVE_COMPLETED_TODOS]: (state) => {
     return {
       ...state,
-      data: state.data.filter((todo: any) => !todo.completed),
+      data: state.data.filter((todo: TodoType) => !todo.completed),
     };
   },
 });

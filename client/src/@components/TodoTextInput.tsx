@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 interface Props {
   placeholder?: string;
   editing?: boolean;
@@ -8,7 +9,7 @@ interface Props {
 
 const TodoTextInput: React.FC<Props> = React.memo(
   ({
-    placeholder = 'What needs to be done?1111',
+    placeholder = 'What needs to be done?',
     editing = false,
     newTodo = false,
     onSave,
@@ -50,7 +51,7 @@ const TodoTextInput: React.FC<Props> = React.memo(
           className="new-todo"
           type="text"
           placeholder={placeholder}
-          autoFocus={true}
+          autoFocus
           value={text}
           onBlur={handleBlur}
           onChange={handleChange}

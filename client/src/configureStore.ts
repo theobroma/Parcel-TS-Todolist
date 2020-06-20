@@ -4,11 +4,7 @@ import { createLogger } from 'redux-logger';
 import throttle from 'lodash/throttle';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { loadState, saveState } from './@utils/localStorage';
-// import rootReducer from './reducer';
 import { rootReducer, RootState } from './@store/index';
-import { FilterType } from './@store/types';
-// mock data
-// import MOCK_DATA from './helpers/MOCK_DATA.json';
 
 const configureStore = () => {
   const persistedState = loadState();

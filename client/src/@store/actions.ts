@@ -22,7 +22,7 @@ export const actions = {
   removeCompleted,
 };
 
-export const setFilter = (filter: any) => {
+export const setFilter = (filter: string) => {
   return {
     type: SET_FILTER,
     payload: filter,

@@ -4,11 +4,12 @@ import HeaderComponent from '../../@components/Header';
 import ListComponent from '../../@components/List';
 import FooterComponent from '../../@components/Footer';
 import { todosSelector } from '../../@store/selectors';
+import { TodoType } from '../../@store/types';
 
-const MainApp: React.FC = (props: any) => {
+const MainApp: React.FC = () => {
   const todos = useSelector(todosSelector).data;
 
-  const activeTodoCount = todos.reduce((accum: any, todo: any) => {
+  const activeTodoCount = todos.reduce((accum: number, todo: TodoType) => {
     return todo.completed ? accum : accum + 1;
   }, 0);
 
@@ -29,11 +30,11 @@ const MainApp: React.FC = (props: any) => {
     <div className="App">
       <section className="todoapp">
         <div>
-          {/*Header*/}
+          {/* Header */}
           <HeaderComponent />
-          {/*Main*/}
+          {/* Main */}
           <ListComponent activeTodoCount={activeTodoCount} />
-          {/*Footer*/}
+          {/* Footer */}
           {footer}
         </div>
       </section>

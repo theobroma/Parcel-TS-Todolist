@@ -15,7 +15,7 @@ const List: React.FC<Props> = React.memo(({ activeTodoCount }) => {
   const filter = useSelector(filterSelector);
 
   const _handleTodoToggleAll = () => {
-    const bool = activeTodoCount === 0 ? false : true;
+    const bool = activeTodoCount !== 0;
     dispatch(actions.handleTodoToggleAll(bool));
   };
 

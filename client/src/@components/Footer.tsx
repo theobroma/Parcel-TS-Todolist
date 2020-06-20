@@ -13,14 +13,18 @@ const Footer: React.FC<Props> = React.memo(
   ({ activeTodoCount, completedCount }) => {
     const dispatch = useDispatch();
 
-    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleButtonClick = () => {
       dispatch(actions.removeCompleted());
     };
 
     const renderClearButton = () => {
       if (completedCount > 0) {
         return (
-          <button className="clear-completed" onClick={handleButtonClick}>
+          <button
+            type="button"
+            className="clear-completed"
+            onClick={handleButtonClick}
+          >
             Clear completed
           </button>
         );
@@ -34,9 +38,9 @@ const Footer: React.FC<Props> = React.memo(
           {pluralize(activeTodoCount, 'item')} left
         </span>
         <ul className="filters">
-          <FilterLink type={'SHOW_ALL'}>All</FilterLink>
-          <FilterLink type={'SHOW_ACTIVE'}>Active</FilterLink>
-          <FilterLink type={'SHOW_COMPLETED'}>Completed</FilterLink>
+          <FilterLink type="SHOW_ALL">All</FilterLink>
+          <FilterLink type="SHOW_ACTIVE">Active</FilterLink>
+          <FilterLink type="SHOW_COMPLETED">Completed</FilterLink>
         </ul>
         {renderClearButton()}
       </footer>

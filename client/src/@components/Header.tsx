@@ -1,15 +1,9 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { actions } from '../@store/actions';
-// test comment
 import TodoTextInput from './TodoTextInput';
 
-// tslint:disable-next-line:no-empty-interface
-interface Props {
-  // addTodo: (text: string) => void;
-}
-
-const Header: React.FC<Props> = React.memo((props) => {
+const Header: React.FC = React.memo(() => {
   const dispatch = useDispatch();
   const handleSave = (text: string) => {
     if (text.length !== 0) {
