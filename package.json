@@ -1,21 +1,25 @@
 {
   "name": "react-ts-todolist-with-hooks",
   "version": "1.0.0",
+  "private": false,
   "description": "React+typescript application.",
   "main": "index.js",
   "dependencies": {
-    "concurrently": "^5.2.0"
+    "concurrently": "^5.2.0",
+    "gh-pages": "^3.1.0"
   },
   "devDependencies": {},
   "engines": {
-    "node": "12.16.3"
+    "node": "12.18.1"
 },
   "scripts": {
     "build": "cd client && npm run build",
     "install": "(cd server && npm install) && (cd client && npm install)",
     "start:prod": "cd server && npm start",
     "heroku-postbuild": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "cd client && npm run build",
+    "deploy": "gh-pages -d client/build"
 },
   "repository": {
     "type": "git",
@@ -26,6 +30,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/theobroma/react-ts-todolist-with-hooks/issues"
-  },
-  "homepage": "https://github.com/theobroma/react-ts-todolist-with-hooks#readme"
+  }
 }
