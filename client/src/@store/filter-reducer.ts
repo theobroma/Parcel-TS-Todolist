@@ -5,7 +5,7 @@ import { FilterAction } from './actions';
 
 export const filterInitialState = 'SHOW_ALL';
 
-export const filter = (
+export const filterReducer = (
   state = filterInitialState,
   action: FilterAction,
 ): string => {
@@ -15,4 +15,4 @@ export const filter = (
   return state;
 };
 
-export default filter;
+export default filterReducer;
