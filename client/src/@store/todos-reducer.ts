@@ -20,7 +20,7 @@ export const todosInitialState: TodoListType = {
   editingTodoTitle: '',
 };
 
-const todosReducer = createReducer<TodoListType, TodoActionType>(
+export const todosReducer = createReducer<TodoListType, TodoActionType>(
   todosInitialState,
   {
     [ADD_TODO]: (state, { payload: text }) => {

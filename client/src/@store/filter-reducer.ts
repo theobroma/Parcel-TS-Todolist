@@ -5,7 +5,10 @@ import { FilterAction } from './actions';
 
 export const filterInitialState = 'SHOW_ALL';
 
-const filter = (state = filterInitialState, action: FilterAction): string => {
+export const filter = (
+  state = filterInitialState,
+  action: FilterAction,
+): string => {
   if (action.type === SET_FILTER) {
     return action.payload;
   }

@@ -41,7 +41,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
     "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
-    "serve":"serve -s build"
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"
