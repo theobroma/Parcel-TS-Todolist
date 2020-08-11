@@ -4,7 +4,7 @@ import HeaderComponent from '../../@components/Header';
 import ListComponent from '../../@components/List';
 import FooterComponent from '../../@components/Footer';
 import { todosSelector } from '../../@store/selectors';
-import { TodoType } from '../../@store/types';
+import { TodoType } from '../../@types';
 
 const MainApp: React.FC = () => {
   const todos = useSelector(todosSelector).data;

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterSelector } from '../@store/selectors';
 import { setFilter } from '../@store/actions';
-import { FilterType } from '../@store/types';
+import { FilterType } from '../@types';
 
 interface Props {
   type: FilterType;

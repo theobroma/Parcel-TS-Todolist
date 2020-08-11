@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../@store/actions';
 import { todosSelector, filterSelector } from '../@store/selectors';
 import TodoItem from './TodoItem';
-import { TodoType } from '../@store/types';
+import { TodoType } from '../@types';
 
 interface Props {
   activeTodoCount: number;

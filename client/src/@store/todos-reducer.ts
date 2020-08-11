@@ -12,7 +12,8 @@ import {
   SAVING_EDITING_TODO_TITLE,
 } from './constants';
 
-import { TodoListType, TodoActionType } from './types';
+import { TodoActionType } from './types';
+import { TodoListType } from '../@types';
 
 export const todosInitialState: TodoListType = {
   data: [],
