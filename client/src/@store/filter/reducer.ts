@@ -14,5 +14,3 @@ export const filterReducer = (
   }
   return state;
 };
-
-export default filterReducer;

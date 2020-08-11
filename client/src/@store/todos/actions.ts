@@ -1,11 +1,10 @@
-import { createAction } from 'typesafe-actions';
+import { ActionType, createAction } from 'typesafe-actions';
 import {
   ADD_TODO,
   TOGGLE_TODO,
   REMOVE_TODO,
   TOGGLE_ALL_TODO,
   REMOVE_COMPLETED_TODOS,
-  SET_FILTER,
   EDIT_TODO,
   CANCEL_EDIT_TODO,
   CHANGE_EDITING_TODO_TITLE,
@@ -35,12 +34,4 @@ export const actions = {
   changeEditingTodoTitle,
   saveEditingTodoTitle,
 };
-
-export const setFilter = (filter: string) => {
-  return {
-    type: SET_FILTER,
-    payload: filter,
-  } as const;
-};
-
-export type FilterAction = ReturnType<typeof setFilter>;
+export type TodoActionType = ActionType<typeof actions>;

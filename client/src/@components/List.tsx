@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { actions } from '../@store/actions';
-import { todosSelector, filterSelector } from '../@store/selectors';
+import { actions } from '../@store/todos/actions';
+import { todosSelector } from '../@store/todos/selectors';
+import { filterSelector } from '../@store/filter/selectors';
 import TodoItem from './TodoItem';
 import { TodoType } from '../@types';
 

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { todosSelector } from '../@store/selectors';
-import { actions } from '../@store/actions';
+import { todosSelector } from '../@store/todos/selectors';
+import { actions } from '../@store/todos/actions';
 
 const TodoEditInput: React.FC = React.memo(() => {
   const dispatch = useDispatch();

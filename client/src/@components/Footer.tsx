@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { actions } from '../@store/actions';
+import { actions } from '../@store/todos/actions';
 import FilterLink from './FilterLink';
 import { pluralize } from '../@utils/pluralize';
 

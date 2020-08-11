@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
-import { filterSelector } from '../@store/selectors';
-import { setFilter } from '../@store/actions';
+import { filterSelector } from '../@store/filter/selectors';
+import { setFilter } from '../@store/filter/actions';
 import { FilterType } from '../@types';
 
 interface Props {

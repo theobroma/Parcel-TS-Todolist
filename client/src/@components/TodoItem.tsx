@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import cx from 'classnames';
-import { actions } from '../@store/actions';
+import { actions } from '../@store/todos/actions';
 import TodoEditInput from './TodoEditInput';
 import { TodoType } from '../@types';
 

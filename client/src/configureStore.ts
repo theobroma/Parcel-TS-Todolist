@@ -5,8 +5,8 @@ import throttle from 'lodash/throttle';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { loadState, saveState } from './@utils/localStorage';
 import { rootReducer, RootState } from './@store/index';
-import { todosInitialState } from './@store/todos-reducer';
-import { filterInitialState } from './@store/filter-reducer';
+import { todosInitialState } from './@store/todos/reducer';
+import { filterInitialState } from './@store/filter/reducer';
 
 const configureStore = () => {
   const persistedState = loadState();
