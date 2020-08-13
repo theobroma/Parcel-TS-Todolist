@@ -1,25 +1,29 @@
 import { createStore, applyMiddleware } from 'redux';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import throttle from 'lodash/throttle';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { loadState, saveState } from './@utils/localStorage';
 import { rootReducer, RootState } from './@store/index';
-import { todosInitialState } from './@store/todos/reducer';
-import { filterInitialState } from './@store/filter/reducer';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['todos', 'filter'],
+};
+
+const pReducer = persistReducer(persistConfig, rootReducer);
 
 const configureStore = () => {
-  const persistedState = loadState();
-
-  let totalInitialState: RootState = {
-    filter: filterInitialState,
-    todos: todosInitialState,
-  };
-  // if persistedState is not empty then assign parsed persistedState to initState
-  if (persistedState) {
-    totalInitialState = persistedState;
-  }
-
   const logger = createLogger({
     collapsed: true,
   });
@@ -32,18 +36,17 @@ const configureStore = () => {
 
   const store = createStore(
     rootReducer,
-    totalInitialState,
     composeEnhancers(applyMiddleware(...middlewares)),
-  );
-
-  store.subscribe(
-    throttle(() => {
-      console.log('saved to localStorage');
-      saveState(store.getState());
-    }, 1000),
   );
 
   return store;
 };
 
-export default configureStore;
+// const store = configureStore();
+
+export const store = createStore(pReducer);
+export const persistor = persistStore(store);
+
+export default { store, persistor };
+
+// export default configureStore;
