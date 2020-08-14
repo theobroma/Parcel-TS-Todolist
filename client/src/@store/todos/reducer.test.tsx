@@ -1,6 +1,6 @@
 import { v1 } from 'uuid';
 import { todosReducer } from './reducer';
-import { actions } from '../actions';
+import { actions } from './actions';
 import { TodoListType } from '../../@types';
 
 test('correct todolist should be added', () => {

@@ -1,4 +1,4 @@
-import { filterReducer } from './filter-reducer';
+import { filterReducer } from './reducer';
 import { setFilter } from './actions';
 
 test('correct filter of todolist should be changed', () => {
