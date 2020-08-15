@@ -1,20 +1,4 @@
 import { createReducer } from 'typesafe-actions';
-
-// export const layoutInitialState = {
-//   theme: 'light' as ThemeColors,
-// };
-
-// export type layoutStateType = typeof layoutInitialState;
-
-// export const layoutReducer = createReducer<layoutStateType, LayoutActionType>(
-//   layoutInitialState,
-//   {
-//     [SET_THEME]: (state, { payload: newTheme }) => {
-//       return { ...state, theme: newTheme };
-//     },
-//   },
-// );
-
 import { v4 as uuidv4 } from 'uuid';
 import {
   ADD_TODO,
@@ -27,7 +11,6 @@ import {
   CHANGE_EDITING_TODO_TITLE,
   SAVING_EDITING_TODO_TITLE,
 } from './constants';
-
 import { TodoListType } from '../../@types';
 import { TodoActionType } from './actions';
 
@@ -37,7 +20,9 @@ export const todosInitialState: TodoListType = {
   editingTodoTitle: '',
 };
 
-export const todosReducer = createReducer<TodoListType, TodoActionType>(
+export type TodosStateType = typeof todosInitialState;
+
+export const todosReducer = createReducer<TodosStateType, TodoActionType>(
   todosInitialState,
   {
     [ADD_TODO]: (state, { payload: text }) => {

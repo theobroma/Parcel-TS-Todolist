@@ -1,16 +1,16 @@
-// import { createReducer } from 'typesafe-actions';
+import { createReducer } from 'typesafe-actions';
 import { SET_FILTER } from './constants';
-import { FilterAction } from './actions';
-// import { FilterType } from './types';
+import { FilterActionType } from './actions';
+import { FilterType } from '../../@types';
 
-export const filterInitialState = 'SHOW_ALL';
+export const filterInitialState = 'SHOW_ALL' as FilterType;
+export type FilterStateType = typeof filterInitialState;
 
-export const filterReducer = (
-  state = filterInitialState,
-  action: FilterAction,
-): string => {
-  if (action.type === SET_FILTER) {
-    return action.payload;
-  }
-  return state;
-};
+export const filterReducer = createReducer<FilterStateType, FilterActionType>(
+  filterInitialState,
+  {
+    [SET_FILTER]: (state, { payload: filter }) => {
+      return filter;
+    },
+  },
+);

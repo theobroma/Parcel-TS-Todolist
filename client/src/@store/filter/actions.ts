@@ -1,10 +1,11 @@
+import { ActionType, createAction } from 'typesafe-actions';
 import { SET_FILTER } from './constants';
+import { FilterType } from '../../@types';
 
-export const setFilter = (filter: string) => {
-  return {
-    type: SET_FILTER,
-    payload: filter,
-  } as const;
+export const setFilter = createAction(SET_FILTER)<FilterType>();
+
+export const actions = {
+  setFilter,
 };
 
-export type FilterAction = ReturnType<typeof setFilter>;
+export type FilterActionType = ActionType<typeof actions>;
